@@ -25,11 +25,11 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 # Delete all entries from the "alerts" table
-cur.execute("DELETE FROM alerts")
+#cur.execute("DELETE FROM alerts")
 
 # Insert a new row into the "alerts" table
 cur.execute("INSERT INTO alerts (term, scoregt, contact_method, contact_details) VALUES (%s, %s, %s, %s)",
-            ("america", -0.5, "telegram", "1256260959"))
+            ("america", -0.5, "telegram", "2011260124"))
 
 # Commit the transaction to save the changes
 conn.commit()
