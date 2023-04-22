@@ -22,7 +22,7 @@ rows = get_alerts()
 5 contact_details
 '''
 
-async def main():
+async def send_alerts():
     for row in rows:
         term = row[1]
 
@@ -49,5 +49,3 @@ async def main():
 
                 if row[4] == "telegram":
                     await send_telegram(message, row[5])
-
-asyncio.run(main())
