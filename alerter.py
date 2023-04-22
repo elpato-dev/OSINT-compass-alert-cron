@@ -49,3 +49,5 @@ async def send_alerts():
 
                 if row[4] == "telegram":
                     await send_telegram(message, row[5])
+
+asyncio.run(send_alerts())

@@ -29,6 +29,8 @@ def alert():
 
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 #remove before deploying on render
 #if __name__ == '__main__':
 #    app.run()
