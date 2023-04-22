@@ -4,3 +4,4 @@ asyncio
 python-telegram-bot
 python-dotenv
 gunicorn
+flask
