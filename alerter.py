@@ -17,10 +17,8 @@ rows = get_alerts()
 1 term
 2 scorelt
 3 scoregt
-4 change_by
-5 starting_score
-6 contact_method
-7 contact_details
+4 contact_method
+5 contact_details
 '''
 
 ## for every row it checks if criteria is met and sends alert accordingly
@@ -40,5 +38,14 @@ for row in rows:
     
             message = "Alert was triggered for term: '"+ term + "' the sentiment score is lower than " + str(scorelt) +" Twitter score is:" + str(twitter_sentiment) + " and news score is:" + str(news_sentiment)
 
-            if row[6] == "telegram":
-                send_telegram(message, row[7])
+            if row[4] == "telegram":
+                send_telegram(message, row[5])
+    
+    if row[3] != None:
+        scoregt = row[3]
+        if twitter_sentiment > scoregt or news_sentiment > scoregt:
+    
+            message = "Alert was triggered for term: '"+ term + "' the sentiment score is greater than " + str(scoregt) +" Twitter score is:" + str(twitter_sentiment) + " and news score is:" + str(news_sentiment)
+
+            if row[4] == "telegram":
+                send_telegram(message, row[5])
