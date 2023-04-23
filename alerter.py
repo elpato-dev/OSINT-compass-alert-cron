@@ -1,7 +1,6 @@
 import requests
 from dotenv import load_dotenv
 import os
-import asyncio
 
 #import modules
 from postgreser import get_alerts
@@ -11,18 +10,17 @@ load_dotenv()
 
 api_key = os.getenv('OSINT_COMPASS_API_KEY')
 
-## get all alerts from database
-rows = get_alerts()
-'''
-0 id
-1 term
-2 scorelt
-3 scoregt
-4 contact_method
-5 contact_details
-'''
-
 async def send_alerts():
+    ## get all alerts from database
+    rows = get_alerts()
+    '''
+    0 id
+    1 term
+    2 scorelt
+    3 scoregt
+    4 contact_method
+    5 contact_details
+    '''
     for row in rows:
         term = row[1]
 
