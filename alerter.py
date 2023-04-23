@@ -34,7 +34,7 @@ async def send_alerts():
             scorelt = row[2]
             if twitter_sentiment < scorelt or news_sentiment < scorelt:
         
-                message = "\xE2\x9D\x97 Alert was triggered for term: <b>"+ term + "</b>! The sentiment score is lower than " + str(scorelt) +". Twitter score is: " + str(twitter_sentiment) + " and news score is: " + str(news_sentiment + ".")
+                message = "\u2757 Alert was triggered for term: <b>" + term + "</b>! The sentiment score is lower than " + str(scorelt) + ". Twitter score is: " + str(twitter_sentiment) + " and news score is: " + str(news_sentiment + ".")
 
                 if row[4] == "telegram":
                     await send_telegram(message, row[5])
@@ -43,7 +43,7 @@ async def send_alerts():
             scoregt = row[3]
             if twitter_sentiment > scoregt or news_sentiment > scoregt:
         
-                message = "\xE2\x9D\x97 Alert was triggered for term: <b>"+ term + "</b>! The sentiment score is greater than " + str(scoregt) +". Twitter score is: " + str(twitter_sentiment) + " and news score is: " + str(news_sentiment + ".")
+                message = "\u2757 Alert was triggered for term: <b>" + term + "</b>! The sentiment score is greater than " + str(scoregt) + ". Twitter score is: " + str(twitter_sentiment) + " and news score is: " + str(news_sentiment + ".")
 
                 if row[4] == "telegram":
                     await send_telegram(message, row[5])
