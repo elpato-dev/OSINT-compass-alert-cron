@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from telegram import Bot, Message
+from telegram import Bot
 
 # Load environment variables from .env file
 load_dotenv()
@@ -13,7 +13,7 @@ async def send_telegram(message, chatid):
     bot = Bot(token=bot_token)
 
     # Send message
-    sent_message = await bot.send_message(chat_id=chatid, text=message)
+    sent_message = await bot.send_message(chat_id=chatid, text=message, parse_mode='html')
     
     # Return the message object
     return sent_message
